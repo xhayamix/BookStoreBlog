@@ -44,8 +44,6 @@ ActiveRecord::Schema.define(version: 2020_01_26_133914) do
 
   create_table "companies", force: :cascade do |t|
     t.string "company_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
