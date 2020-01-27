@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-md-12">
+        <h1 class="text-center">sinnki</h1>
+        <%= image_tag 'water.jpg', class: 'newimg' %>
+        <div>
+            <%= form_with scope: :posts, url: '/posts/add', local: true do |form| %>
+                <div class="form-group">
+                    <%= form.label :title, 'title'%>
+                    <%= form.text_field :title, class: 'form-control' %>
+                </div>
+                <div class="form-group">
+                    <%= form.label :body, 'body'%>
+                    <%= form.text_area :body,rows: 10, class: 'form-control' %>
+                </div>
+                <%= form.file_field :image %><br>
+                <%= form.submit "投稿", class: 'btn btn-success'%>
+            <% end %>
+        </div>
+    </div>
+</div>

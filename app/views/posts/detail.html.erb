@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="col-md-12">
+        <h1 class="text-center"><%= @post.title%></h1>
+        <%= image_tag @post.image, class: 'newimg' %>
+        <br>
+        <%
+            if @post.update_day  == nil then
+                updateday = @post.create_day
+            else
+                updateday = @post.update_day
+            end
+        %>
+        <div class=day>
+            <span>投稿日：<%= @post.create_day %></span>
+            <span>更新日：<%= updateday %></span>
+        </div>
+        <br>
+        <hr>
+        <p class=body><%= simple_format @post.body%></p><br>
+        <br>
+        <br>
+        <br>
+        <div class=username>
+            投稿者：<%=  @username %>
+        </div>
+        <hr>
+        <%if session[:user_id] != nil then%>
+            <%= form_with scope: :comments, url: '/comments/add', local: true do |form| %>
+                <%= form.text_field :comment %><br>
+                <input type="hidden" name="id" value=<%= @post.id%> required >
+            <%= form.submit "コメントする"%>
+            <% end %>
+        <%end%>
+        コメント<br>
+        <ul>
+            <% @comments.each do |comment| %>
+                <span><%=comment.id%>：<%=comment.create_day%>(コメント者：<%= @comment_username[comment.user_id]%>)</span><br>
+                <span class=comment ><%= comment.comment%></span><br>
+            <% end %>
+        </ul>
+    </div>
+</div>

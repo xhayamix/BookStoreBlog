@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="title"><a href="/">Y書店ブログ</a></div>
+        <div id="header-menu">
+        <%if session[:user_id] != nil then%>
+          <span><a href="/posts/new">新規作成</a></span>
+          <span><a href="/users/logout">ログアウト</a></span>
+        <% else %>
+          <span><a href="/users/login">ログイン</a></span> 
+          <span><a href="/users/new">新規登録</a></span>
+        <% end %> 
+        </div>
+      </div>
+      <div id="main-content">
+        <%= yield %>
+      </div>
+    </div>
+  </body>
+</html>

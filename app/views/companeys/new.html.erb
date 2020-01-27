@@ -1,0 +1,6 @@
+<h3>新規登録</h3>
+
+<%= form_with scope: :companies, url: '/companeys/add', local: true do |form| %>
+    店舗名:<%= form.text_field :company_name %><br>
+    <%= form.submit "登録"%>
+<% end %>

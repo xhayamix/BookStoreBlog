@@ -1,0 +1,8 @@
+<h3>新規登録</h3>
+
+<%= form_with scope: :users, url: '/users/add', local: true do |form| %>
+    ユーザー名:<%= form.text_field :user_name %><br>
+    パスワード:<%= form.text_field :password %><br>
+    <%= form.submit "登録"%>
+<% end %>
+

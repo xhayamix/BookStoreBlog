@@ -1,0 +1,25 @@
+<h3>■投稿一覧</h3>
+<% if @posts then %>
+    <div class="container">
+        <div class="row">
+            <% @posts.each do |post| %>
+                <div class="col-4 show">
+                    <a href="/posts/detail/<%= post.id%>" style="color:black;">
+                        <%
+                        if post.update_day  == nil then
+                            updateday = post.create_day
+                        else
+                            updateday = post.update_day
+                        end
+                    %>
+                    <%= image_tag(post.image, class: "img-responsive img-thumbnail img-circle") %>
+                    <p class="post-title"><%= post.title %></p>
+                    <p class="username">投稿者：<%= @username[post.user_id] %></p>
+                    <span>更新日：<%= updateday %></span>
+                    </a>
+                </div>
+                
+            <%end%>
+        </div> 
+    </div>  
+<% end %>
