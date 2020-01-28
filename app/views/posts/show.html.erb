@@ -12,7 +12,14 @@
                             updateday = post.update_day
                         end
                     %>
-                    <%= image_tag(post.image, class: "img-responsive img-thumbnail img-circle") %>
+                    <%
+                    if post.image.attached? == false then
+                        img = "book.jpg"
+                    else
+                        img = post.image
+                    end 
+                    %>
+                    <%= image_tag(img, class: "img-responsive img-thumbnail img-circle") %>
                     <p class="post-title"><%= post.title %></p>
                     <p class="username">投稿者：<%= @username[post.user_id] %></p>
                     <span>更新日：<%= updateday %></span>
