@@ -21,13 +21,9 @@
 
 
  #container{
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: #cccccc;
-    width: 100vw;
-    height: 100vh;
-    z-index: -999;
+    width: 100%;
+    background: #cccccc;
+    margin: 0 auto;
  }
 
  #header{
@@ -53,16 +49,12 @@
 
 #main-content{
     clear: both;
-    position: fixed;
-    left: calc(50vw - 360px);
-    top: 0px;
-    height: 100vh;
     width: 720px;
-    background-color: white;
-    z-index: -998;
-    filter: drop-shadow(2px 0 8px #aaaaaa);
-
+    height: 100vh auto;
+    margin: 0 auto;
+    border: 1px solid black;
     background: white;
+    min-height: calc(100vh - 40px);
 }
 
 a{
