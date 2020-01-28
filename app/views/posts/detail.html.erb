@@ -38,11 +38,13 @@
             <%= form.submit "コメントする"%>
             <% end %>
         <%end%>
+        <% count = 1%>
         コメント<br>
         <ul>
             <% @comments.each do |comment| %>
-                <span><%=comment.id%>：<%=comment.create_day%>(コメント者：<%= @comment_username[comment.user_id]%>)</span><br>
+                <span><%=count%>：<%=comment.create_day%>(コメント者：<%= @comment_username[comment.user_id]%>)</span><br>
                 <span class=comment ><%= comment.comment%></span><br>
+                <%count = count + 1%>
             <% end %>
         </ul>
     </div>
