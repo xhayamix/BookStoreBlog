@@ -1,6 +1,6 @@
 <h3>■支店一覧</h3>
 <% @companeys.each do |comapaney| %>
-    <div>
-        <div><a href="/companeys/detail/<%= comapaney.id%>" style="color:black;"><%= comapaney.company_name %></a></div>
-    </div>
+    
+        <div class="com"><a href="/companeys/detail/<%= comapaney.id%>" style="color:black;"><%= comapaney.company_name %></a></div>
+    
 <% end %>
